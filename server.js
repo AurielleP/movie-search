@@ -31,7 +31,7 @@ app.post('/favorites', function(req, res){
   res.send(data);
 });
 
-app.set('port', process.ENV || 3000)
+app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function(){
     const portNum = app.get('port');
