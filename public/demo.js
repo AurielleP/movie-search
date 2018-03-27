@@ -23,7 +23,7 @@ function fetchFavoritesAndMovieData(callback) {
 
 
         let query = document.getElementById('demo-query').value;
-        let url = "http://www.omdbapi.com/?plot=full&apikey=aad027a2&s=" + query;
+        let url = "https://www.omdbapi.com/?plot=full&apikey=aad027a2&s=" + query;
         fetchData(url, (err, movieData) => {
             if (err) {
                 console.log(err);
@@ -96,7 +96,7 @@ function getHtmlForTable(movieDataList, currentFavorites) {
 // Create Modal Dynamically with Movie Data
 
 function makeModal(imdbID) {
-    let url = `http://www.omdbapi.com/?plot=full&apikey=aad027a2&i=${imdbID}`;
+    let url = `https://www.omdbapi.com/?plot=full&apikey=aad027a2&i=${imdbID}`;
     let movieData = fetchData(url, (err, movieDetails) => {
         let starRating = isAlreadyFavorited(movieDetails.imdbID, currentFavorites) ? 1 : 0;
         let html = ` <div class="header">
