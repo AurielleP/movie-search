@@ -33,7 +33,7 @@ app.post('/favorites', function(req, res){
 
 app.set('port', (process.env.PORT || 5000));
 
-app.listen(app.get('port'), function(){
-    const portNum = app.get('port');
+const portNum = app.get('port');
+app.listen(portNum, function(){
     console.log(`Listening on port ${portNum}`);
 });
