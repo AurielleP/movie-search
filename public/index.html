@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.5/lodash.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.css">
+    <title>Movie Search</title>
+    <style type="text/css">
+    a {
+        cursor: pointer;
+    }
+
+    .ui.modal.favoritesModal {
+        padding: 15px;
+    }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <a class="ui button" id="submitFavorite" href="/data.json">Favorites</a>
+        </ul>
+    </nav>
+    <div class="ui modal modalDetails" id="modalDetails">
+        <button class="ui button" id="closeDetails">CLOSE</button>
+    </div>
+    <div class=container>
+        <div class="ui three column centered grid">
+            <div class="two column centered row">
+                <div class="ui fluid search">
+                    <div class="ui icon input">
+                        <input id="demo-query" class="twitter-typeahead" name="demo-query" autocomplete="off" type="text">
+                        <i class="search icon"></i>
+                    </div>
+                    <a class="ui button" id="runSearch">Search</a>
+                </div>
+                <div class="three column centered row">
+                    <table id="tableResultsMain" class="ui fixed celled table">
+                        <thead>
+                            <tr>
+                                <th class="one wide">Fav</th>
+                                <th>Title</th>
+                                <th class="two wide">Type</th>
+                                <th class="two wide">Year</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableResults">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="ui modal favoritesModal" id="favoritesModal">
+                    <div class=container>
+                        <table id="favoriteResultsMain" class="ui fixed celled table">
+                            <thead>
+                                <tr>
+                                    <th class="three wide">Title</th>
+                                </tr>
+                            </thead>
+                            <tbody id="favoriteResults">
+                            </tbody>
+                        </table>
+                        <button class="ui button" id="closeFavorites">CLOSE</button>
+                    </div>
+                </div>
+                <script src="./demo.js"></script>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
