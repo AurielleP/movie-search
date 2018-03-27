@@ -32,6 +32,7 @@ function fetchFavoritesAndMovieData(callback) {
             let movieList = movieData.Search;
             let html = getHtmlForTable(movieList, currentFavorites);
             document.getElementById('tableResults').innerHTML = html
+            // initializing rating functionality for semantic ui specifically
             $('.ui.rating').rating();
             callback();
         })
@@ -117,11 +118,11 @@ function makeModal(imdbID) {
                     <small><strong>Runtime:</strong> ${movieDetails.Runtime}</small>
                 </div>
             </div>
-            <div class="actions"><button class="ui button" id="closeDetails">CLOSE</button>
             </div>`
         document.getElementById('modalDetails').innerHTML = html;
-        document.getElementById('modalDetails').style.display = 'block';
-        initCloseButton('closeDetails', 'modalDetails');
+        // initializing modal functionality for semantic ui specifically
+        $('#modalDetails').modal('show');
+        // initializing rating functionality for semantic ui specifically
         $('.ui.rating').rating();
     });
 
@@ -141,21 +142,11 @@ function makeFavoritesModal() {
             </tr>`;
         })
         document.getElementById('favoriteResults').innerHTML = htmlTable.join('');
-        document.getElementById('favoritesModal').style.display = 'block';
-        initCloseButton('closeFavorites', 'favoritesModal');
+        // initializing modal functionality for semantic ui specifically
+        $('#favoritesModal').modal('show');
     });
 
 }
-
-function initCloseButton(closeId, elementId) {
-    const closeButton = document.getElementById(closeId);
-    closeButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById(elementId).style.display = 'none';
-
-    })
-    return;
-};
 
 function fetchFavorites(callback) {
     fetchData("/favorites", (err, favoritesData) => {
@@ -190,7 +181,7 @@ function isAlreadyFavorited(imdbID, currentFavorites) {
     return isFavorited;
 }
 
-const submitButton = document.querySelector('.ui.button');
+const submitButton = document.querySelector('#showFavorites');
 submitButton.addEventListener('click', function(e) {
     e.preventDefault();
     makeFavoritesModal();
