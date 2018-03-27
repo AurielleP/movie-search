@@ -3,7 +3,7 @@ Node Instructor Code Challenge
 
 
 # Live Link
-(Movie Search)[https://movie-search-ga-challenge.herokuapp.com/]
+[Movie Search](https://movie-search-ga-challenge.herokuapp.com/)
 
 
 # Instructions
